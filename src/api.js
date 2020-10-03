@@ -83,17 +83,9 @@ export function PHOTO_GET(id) {
   };
 }
 
-export function COMMENT_POST(id, body) {
+export function PHOTO_VIEW_GET(id) {
   return {
-    url: API_URL + `api/comment/${id}`,
-    options: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + window.localStorage.getItem('token')
-      },
-      body: JSON.stringify(body)
-    }
+    url: API_URL + `api/photo/${id}`,
   };
 }
 
@@ -109,3 +101,16 @@ export function PHOTO_DELETE(id) {
   };
 }
 
+export function COMMENT_POST(id, body) {
+  return {
+    url: API_URL + `api/comment/${id}`,
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + window.localStorage.getItem('token')
+      },
+      body: JSON.stringify(body)
+    }
+  };
+}
