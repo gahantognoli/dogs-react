@@ -2,18 +2,19 @@ import React from 'react';
 import styles from './UserPhotoPost.module.css';
 import Input from '../Forms/Input';
 import Button from '../Forms/Button';
-import Error from '../Helper/Erro';
+import Erro from '../Helper/Erro';
 import useForm from '../../Hooks/useForm';
 import useFetch from '../../Hooks/useFetch';
 import { PHOTO_POST } from '../../api';
 import { useNavigate } from 'react-router-dom';
+import Head from '../Helper/Head';
 
 const UserPhotoPost = () => {
   const nome = useForm();
   const peso = useForm('number');
   const idade = useForm('number');
   const [img, setImg] = React.useState({});
-  const { data, error, loading, request } = useFetch();
+  const { data, erro, loading, request } = useFetch();
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -42,6 +43,7 @@ const UserPhotoPost = () => {
 
   return (
     <section className={`${styles.photoPost} animeLeft`}>
+      <Head title="Posto sua foto" />
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="nome" {...nome} />
         <Input label="Peso" type="number" name="peso" {...peso} />
@@ -58,7 +60,7 @@ const UserPhotoPost = () => {
         ) : (
           <Button>Enviar</Button>
         )}
-        <Error error={error} />
+        <Erro erro={erro} />
       </form>
       <div>
         {img.preview && (

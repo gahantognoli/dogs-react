@@ -40,6 +40,16 @@ a {
     color: #333;
 }
 
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh + 10rem);
+}
+
+.AppBody {
+    flex: 1;
+}
+
 .container {
     max-width: 50rem;
     padding: 0 1rem;
@@ -78,9 +88,14 @@ a {
     animation: animeLeft .3s forwards;
 }
 
+.VictoryContainer {
+    height: initial !important;
+}
+
 @keyframes animeLeft {
     to {
         opacity: 1;
         transform: initial;
     }
 }
+
